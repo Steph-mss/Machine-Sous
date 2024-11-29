@@ -76,24 +76,24 @@ $idParam = (int) preg_replace("/[\D]+/", "", $uri);
 
 // On définit les routes
 switch (true) {
-  case ($uri === "/"):
-    $router->get("/", BlogController::index());
-    break;
-  case (str_contains($uri, "/articles")):
-    if ($idParam) {
-      $router->get("/articles/$idParam", ArticlesController::getArticle($idParam));
-      exit;
-    }
-    $router->get("/articles", Articlescontroller::getList());
-    break;
-  case ($uri === "/article/ajoute"):
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $router->post("/article/ajoute", ADD::postADD());
-      exit;
-    }
-    $router->get("/article/ajoute", ADD::getList());
-    break;
-  case ($uri === "/slot-machine"):
+  // case ($uri === "/"):
+  //   $router->get("/", BlogController::index());
+  //   break;
+  // case (str_contains($uri, "/articles")):
+  //   if ($idParam) {
+  //     $router->get("/articles/$idParam", ArticlesController::getArticle($idParam));
+  //     exit;
+  //   }
+  //   $router->get("/articles", Articlescontroller::getList());
+  //   break;
+  // case ($uri === "/article/ajoute"):
+  //   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  //     $router->post("/article/ajoute", ADD::postADD());
+  //     exit;
+  //   }
+  //   $router->get("/article/ajoute", ADD::getList());
+  //   break;
+  case ($uri === "/slot-machine" || $uri === "/"):
     $router->get(
       "/slot-machine",
       SlotMachineController::index()
