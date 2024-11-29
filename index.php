@@ -76,9 +76,9 @@ $idParam = (int) preg_replace("/[\D]+/", "", $uri);
 
 // On définit les routes
 switch (true) {
-  // case ($uri === "/"):
-  //   $router->get("/", BlogController::index());
-  //   break;
+  case ($uri === "/"):
+    $router->get("/", BlogController::index());
+    break;
   // case (str_contains($uri, "/articles")):
   //   if ($idParam) {
   //     $router->get("/articles/$idParam", ArticlesController::getArticle($idParam));
@@ -93,7 +93,7 @@ switch (true) {
   //   }
   //   $router->get("/article/ajoute", ADD::getList());
   //   break;
-  case ($uri === "/slot-machine" || $uri === "/"):
+  case ($uri === "/slot-machine"):
     $router->get(
       "/slot-machine",
       SlotMachineController::index()
